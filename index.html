@@ -169,6 +169,23 @@
           width: 100%;
         }
       }
+      #cert-modal img {
+        animation: zoomIn 0.3s ease;
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .cert-card:hover {
+        transform: translateY(-5px) scale(1.02);
+      }
       @keyframes blink {
         50% {
           border-color: transparent;
@@ -274,11 +291,10 @@
             class="text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-8"
             style="color: rgba(228, 228, 236, 0.6)"
           >
-            A highly motivated, detail-oriented and curious Computer Science
-            student with a passion for solving real-world problems through
-            technology. Seeking internship opportunities to apply my skills in
-            software testing, web development, database design within a
-            collaborative and learning-driven environment.
+            Motivated Computer Science student passionate about building
+            scalable web applications and solving real-world problems. Seeking
+            opportunities to apply my skills in development, testing, and
+            data-driven solutions.
           </p>
           <div class="flex gap-4 justify-center flex-wrap">
             <a
@@ -895,7 +911,11 @@
         <p class="mono text-xs mb-2" style="color: var(--accent)">05 //</p>
         <h2 class="text-3xl sm:text-4xl font-bold mb-12">Certifications</h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="cert-card">
+          <!-- 1 -->
+          <div
+            class="cert-card cursor-pointer"
+            onclick="openCert('images/java.jpg')"
+          >
             <p class="mono text-xs mb-2" style="color: var(--accent)">
               Aug 2024
             </p>
@@ -904,7 +924,11 @@
               Infosys Springboard
             </p>
           </div>
-          <div class="cert-card">
+          <!-- 2 -->
+          <div
+            class="cert-card cursor-pointer"
+            onclick="openCert('images/python.jpg')"
+          >
             <p class="mono text-xs mb-2" style="color: var(--accent2)">
               Sep 2024
             </p>
@@ -913,14 +937,22 @@
               MongoDB
             </p>
           </div>
-          <div class="cert-card">
+          <!-- 3 -->
+          <div
+            class="cert-card cursor-pointer"
+            onclick="openCert('images/sawit.jpg')"
+          >
             <p class="mono text-xs mb-2" style="color: var(--accent)">
               Oct 2024
             </p>
             <h4 class="font-semibold mb-1">SAWIT.AI Learnathon</h4>
             <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">Guvi</p>
           </div>
-          <div class="cert-card">
+          <!-- 4 -->
+          <div
+            class="cert-card cursor-pointer"
+            onclick="openCert('images/ai.jpg')"
+          >
             <p class="mono text-xs mb-2" style="color: var(--accent2)">
               Jan 2025
             </p>
@@ -929,7 +961,11 @@
               IBM Skillsbuild
             </p>
           </div>
-          <div class="cert-card">
+          <!-- 5 -->
+          <div
+            class="cert-card cursor-pointer"
+            onclick="openCert('images/azure.jpg')"
+          >
             <p class="mono text-xs mb-2" style="color: var(--accent)">
               Apr 2025
             </p>
@@ -938,7 +974,11 @@
               Microsoft
             </p>
           </div>
-          <div class="cert-card">
+          <!-- 6 -->
+          <div
+            class="cert-card cursor-pointer"
+            onclick="openCert('images/webdev.jpg')"
+          >
             <p class="mono text-xs mb-2" style="color: var(--accent2)">
               May 2025
             </p>
@@ -947,7 +987,11 @@
               Frontend Masters
             </p>
           </div>
-          <div class="cert-card">
+          <!-- 7 -->
+          <div
+            class="cert-card cursor-pointer"
+            onclick="openCert('images/cyber.jpg')"
+          >
             <p class="mono text-xs mb-2" style="color: var(--accent)">
               Jul 2025
             </p>
@@ -1074,10 +1118,11 @@
           knowledge.
         </p>
         <p class="text-xs mt-2" style="color: rgba(228, 228, 236, 0.2)">
-          © 2025 Moganapriya M. Built with passion.
+          © 2026 Moganapriya M. Built with passion.
         </p>
       </footer>
     </div>
+
     <script>
       const defaultConfig = {
         hero_title: "Moganapriya M",
@@ -1125,6 +1170,14 @@
           .querySelectorAll(".section-fade h2")
           .forEach((h) => (h.style.fontSize = `${baseSize * 2}px`));
       }
+      function openCert(imageSrc) {
+        const modal = document.getElementById("cert-modal");
+        const img = document.getElementById("cert-image");
+
+        img.src = imageSrc;
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
 
       // Mobile menu
       document.getElementById("menu-btn").addEventListener("click", () => {
@@ -1150,8 +1203,37 @@
       document
         .querySelectorAll(".section-fade")
         .forEach((el) => observer.observe(el));
+      document.addEventListener("DOMContentLoaded", () => {
+        lucide.createIcons();
 
-      lucide.createIcons();
+        document.getElementById("close-modal").addEventListener("click", () => {
+          document.getElementById("cert-modal").classList.add("hidden");
+        });
+
+        document.getElementById("cert-modal").addEventListener("click", (e) => {
+          if (e.target.id === "cert-modal") {
+            e.currentTarget.classList.add("hidden");
+          }
+        });
+      });
     </script>
+    <!-- Certificate Modal -->
+    <div
+      id="cert-modal"
+      class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50"
+    >
+      <div class="relative max-w-3xl w-full px-4">
+        <!-- Close Button -->
+        <button
+          id="close-modal"
+          class="absolute top-2 right-2 text-white text-2xl"
+        >
+          &times;
+        </button>
+
+        <!-- Image -->
+        <img id="cert-image" src="" class="w-full rounded-lg shadow-lg" />
+      </div>
+    </div>
   </body>
 </html>
