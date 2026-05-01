@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moganapriya M — Portfolio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+html,body{margin:0;padding:0;height:100%;font-family:'Sora',sans-serif}
+:root{--bg:#0a0a0f;--surface:#13131f;--text:#e4e4ec;--accent:#6ee7b7;--accent2:#818cf8}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text)}
+.app-wrapper{height:100%;overflow-y:auto;overflow-x:hidden;background:var(--bg)}
+.gradient-orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.15;pointer-events:none}
+.section-fade{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.section-fade.visible{opacity:1;transform:translateY(0)}
+.skill-tag{background:rgba(110,231,183,.08);border:1px solid rgba(110,231,183,.2);padding:6px 16px;border-radius:999px;font-size:13px;color:var(--accent);transition:all .3s}
+.skill-tag:hover{background:rgba(110,231,183,.18);transform:translateY(-2px)}
+.cert-card{background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px;transition:all .3s}
+.cert-card:hover{border-color:rgba(129,140,248,.3);transform:translateY(-3px)}
+.timeline-dot{width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);position:absolute;left:-6px;top:6px;z-index:2}
+.timeline-line{position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(110,231,183,.15)}
+nav a{position:relative;color:rgba(228,228,236,.6);transition:color .3s}
+nav a:hover,nav a.active{color:var(--accent)}
+nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s}
+nav a:hover::after,nav a.active::after{width:100%}
+.project-card{background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;transition:all .4s}
+.project-card:hover{border-color:rgba(110,231,183,.25);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.intern-card{background:linear-gradient(135deg,rgba(129,140,248,.06),rgba(110,231,183,.04));border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px;transition:all .3s}
+.intern-card:hover{border-color:rgba(129,140,248,.2)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.float-anim{animation:float 6s ease-in-out infinite}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blink{50%{border-color:transparent}}
+.typing-text{overflow:hidden;white-space:nowrap;border-right:3px solid var(--accent);width:0;animation:typing 2.5s steps(35) 1s forwards,blink .7s step-end infinite}
+.mono{font-family:'JetBrains Mono',monospace}
+</style>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full">
+  <div class="app-wrapper" id="app-wrapper"><!-- Nav -->
+   <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0a0f]/80 border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"><span class="text-lg font-bold" style="color:var(--accent)">M<span style="color:var(--accent2)">.</span></span>
+     <div class="hidden md:flex gap-6 text-sm font-medium"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#certs">Certifications</a><a href="#contact">Contact</a>
+     </div><button id="menu-btn" class="md:hidden" style="color:var(--text)"><i data-lucide="menu" style="width:22px;height:22px"></i></button>
+    </div>
+    <div id="mobile-nav" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3 text-sm font-medium"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#certs">Certifications</a><a href="#contact">Contact</a>
+    </div>
+   </nav><!-- Hero -->
+   <section id="hero" class="relative min-h-[90%] flex items-center justify-center px-6 pt-20 overflow-hidden">
+    <div class="gradient-orb" style="width:500px;height:500px;background:var(--accent);top:-100px;right:-150px"></div>
+    <div class="gradient-orb" style="width:400px;height:400px;background:var(--accent2);bottom:-80px;left:-100px"></div>
+    <div class="text-center relative z-10 max-w-3xl mx-auto">
+     <p class="mono text-sm mb-4" style="color:var(--accent)">// hello world</p>
+     <h1 id="hero-title" class="text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-4">Moganapriya M</h1>
+     <div class="flex justify-center mb-6">
+      <p id="hero-subtitle" class="typing-text mono text-base sm:text-lg" style="color:var(--accent2)">Computer Science Student &amp; Aspiring Developer</p>
+     </div>
+     <p id="objective-text" class="text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-8" style="color:rgba(228,228,236,.6)">A highly motivated, detail-oriented and curious Computer Science student with a passion for solving real-world problems through technology. Seeking internship opportunities to apply my skills in software testing, web development, database design within a collaborative and learning-driven environment.</p>
+     <div class="flex gap-4 justify-center flex-wrap"><a href="#projects" class="px-6 py-3 rounded-full font-medium text-sm transition-all hover:scale-105" style="background:var(--accent);color:#0a0a0f">View My Work</a> <a href="#contact" class="px-6 py-3 rounded-full font-medium text-sm border transition-all hover:scale-105" style="border-color:rgba(255,255,255,.15);color:var(--text)">Get In Touch</a>
+     </div>
+    </div>
+   </section><!-- About / Education -->
+   <section id="about" class="section-fade max-w-6xl mx-auto px-6 py-20">
+    <p class="mono text-xs mb-2" style="color:var(--accent)">01 //</p>
+    <h2 class="text-3xl sm:text-4xl font-bold mb-12">Education</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+     <div class="p-6 rounded-2xl" style="background:var(--surface);border:1px solid rgba(255,255,255,.06)">
+      <div class="flex items-center gap-3 mb-3">
+       <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(110,231,183,.1)">
+        <i data-lucide="graduation-cap" style="width:20px;height:20px;color:var(--accent)"></i>
+       </div><span class="mono text-xs" style="color:rgba(228,228,236,.4)">2023 — Present</span>
+      </div>
+      <h3 class="font-semibold text-lg mb-1">B.E — Computer Science &amp; Engineering</h3>
+      <p class="text-sm mb-2" style="color:rgba(228,228,236,.5)">St. Peter's College of Engineering and Technology, Chennai</p><span class="mono text-sm font-semibold" style="color:var(--accent)">CGPA: 8.30</span>
+     </div>
+     <div class="p-6 rounded-2xl" style="background:var(--surface);border:1px solid rgba(255,255,255,.06)">
+      <div class="flex items-center gap-3 mb-3">
+       <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(129,140,248,.1)">
+        <i data-lucide="school" style="width:20px;height:20px;color:var(--accent2)"></i>
+       </div><span class="mono text-xs" style="color:rgba(228,228,236,.4)">2022 — 2023</span>
+      </div>
+      <h3 class="font-semibold text-lg mb-1">HSC</h3>
+      <p class="text-sm mb-2" style="color:rgba(228,228,236,.5)">Leo Matriculation Higher Secondary School, Chennai</p><span class="mono text-sm font-semibold" style="color:var(--accent2)">Percentage: 83.3%</span>
+     </div>
+    </div>
+   </section><!-- Skills -->
+   <section id="skills" class="section-fade max-w-6xl mx-auto px-6 py-20">
+    <p class="mono text-xs mb-2" style="color:var(--accent)">02 //</p>
+    <h2 class="text-3xl sm:text-4xl font-bold mb-12">Skills &amp; Tools</h2>
+    <div class="grid sm:grid-cols-3 gap-8">
+     <div>
+      <h3 class="text-sm font-semibold uppercase tracking-wider mb-4" style="color:var(--accent)">Technical</h3>
+      <div class="flex flex-wrap gap-2"><span class="skill-tag">SQL</span><span class="skill-tag">JavaScript</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">Python</span>
+      </div>
+     </div>
+     <div>
+      <h3 class="text-sm font-semibold uppercase tracking-wider mb-4" style="color:var(--accent2)">Tools</h3>
+      <div class="flex flex-wrap gap-2"><span class="skill-tag" style="background:rgba(129,140,248,.08);border-color:rgba(129,140,248,.2);color:var(--accent2)">Excel</span> <span class="skill-tag" style="background:rgba(129,140,248,.08);border-color:rgba(129,140,248,.2);color:var(--accent2)">VS Code</span> <span class="skill-tag" style="background:rgba(129,140,248,.08);border-color:rgba(129,140,248,.2);color:var(--accent2)">Git</span> <span class="skill-tag" style="background:rgba(129,140,248,.08);border-color:rgba(129,140,248,.2);color:var(--accent2)">Figma</span>
+      </div>
+     </div>
+     <div>
+      <h3 class="text-sm font-semibold uppercase tracking-wider mb-4" style="color:rgba(228,228,236,.5)">Soft Skills</h3>
+      <div class="flex flex-wrap gap-2"><span class="skill-tag" style="background:rgba(228,228,236,.04);border-color:rgba(228,228,236,.1);color:rgba(228,228,236,.7)">Problem Solving</span> <span class="skill-tag" style="background:rgba(228,228,236,.04);border-color:rgba(228,228,236,.1);color:rgba(228,228,236,.7)">Project Management</span> <span class="skill-tag" style="background:rgba(228,228,236,.04);border-color:rgba(228,228,236,.1);color:rgba(228,228,236,.7)">Critical Thinking</span> <span class="skill-tag" style="background:rgba(228,228,236,.04);border-color:rgba(228,228,236,.1);color:rgba(228,228,236,.7)">Adaptability</span> <span class="skill-tag" style="background:rgba(228,228,236,.04);border-color:rgba(228,228,236,.1);color:rgba(228,228,236,.7)">Time Management</span>
+      </div>
+     </div>
+    </div>
+    <div class="mt-8">
+     <h3 class="text-sm font-semibold uppercase tracking-wider mb-3" style="color:rgba(228,228,236,.5)">Languages Known</h3>
+     <div class="flex gap-2">
+      <span class="skill-tag" style="background:rgba(228,228,236,.04);border-color:rgba(228,228,236,.1);color:rgba(228,228,236,.7)">English</span><span class="skill-tag" style="background:rgba(228,228,236,.04);border-color:rgba(228,228,236,.1);color:rgba(228,228,236,.7)">Tamil</span>
+     </div>
+    </div>
+   </section><!-- Projects -->
+   <section id="projects" class="section-fade max-w-6xl mx-auto px-6 py-20">
+    <p class="mono text-xs mb-2" style="color:var(--accent)">03 //</p>
+    <h2 class="text-3xl sm:text-4xl font-bold mb-12">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+     <div class="project-card">
+      <div class="p-4" style="background:linear-gradient(135deg,rgba(110,231,183,.1),rgba(129,140,248,.05))">
+       <div class="h-32 flex items-center justify-center text-5xl">
+        🏦
+       </div>
+      </div>
+      <div class="p-6">
+       <h3 class="font-bold text-xl mb-2">Bank Management System</h3>
+       <div class="flex flex-wrap gap-1.5 mb-4">
+        <span class="mono text-xs px-2 py-1 rounded" style="background:rgba(110,231,183,.1);color:var(--accent)">SQL</span><span class="mono text-xs px-2 py-1 rounded" style="background:rgba(110,231,183,.1);color:var(--accent)">Python</span>
+       </div>
+       <ul class="text-sm space-y-2" style="color:rgba(228,228,236,.6)">
+        <li class="flex gap-2"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent);flex-shrink:0;margin-top:3px"></i>Built secure core banking app with account &amp; transaction modules</li>
+        <li class="flex gap-2"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent);flex-shrink:0;margin-top:3px"></i>Used relational DB with primary and foreign keys</li>
+        <li class="flex gap-2"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent);flex-shrink:0;margin-top:3px"></i>Applied basic encryption for data protection</li>
+       </ul>
+      </div>
+     </div>
+     <div class="project-card">
+      <div class="p-4" style="background:linear-gradient(135deg,rgba(129,140,248,.1),rgba(110,231,183,.05))">
+       <div class="h-32 flex items-center justify-center text-5xl">
+        🎨
+       </div>
+      </div>
+      <div class="p-6">
+       <h3 class="font-bold text-xl mb-2">Event Web Portfolio</h3>
+       <div class="flex flex-wrap gap-1.5 mb-4">
+        <span class="mono text-xs px-2 py-1 rounded" style="background:rgba(129,140,248,.1);color:var(--accent2)">HTML</span><span class="mono text-xs px-2 py-1 rounded" style="background:rgba(129,140,248,.1);color:var(--accent2)">CSS</span><span class="mono text-xs px-2 py-1 rounded" style="background:rgba(129,140,248,.1);color:var(--accent2)">JavaScript</span>
+       </div>
+       <ul class="text-sm space-y-2" style="color:rgba(228,228,236,.6)">
+        <li class="flex gap-2"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent2);flex-shrink:0;margin-top:3px"></i>Created responsive event website with modern design</li>
+        <li class="flex gap-2"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent2);flex-shrink:0;margin-top:3px"></i>Applied modular design with comments for maintainability</li>
+        <li class="flex gap-2"><i data-lucide="check" style="width:14px;height:14px;color:var(--accent2);flex-shrink:0;margin-top:3px"></i>Used DOM manipulation for dynamic filters &amp; pop-ups</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </section><!-- Experience -->
+   <section id="experience" class="section-fade max-w-6xl mx-auto px-6 py-20">
+    <p class="mono text-xs mb-2" style="color:var(--accent)">04 //</p>
+    <h2 class="text-3xl sm:text-4xl font-bold mb-12">Internship Experience</h2>
+    <div class="space-y-6">
+     <div class="intern-card">
+      <div class="flex flex-wrap items-center gap-3 mb-3">
+       <h3 class="font-bold text-lg">Marcello Tech</h3><span class="mono text-xs px-3 py-1 rounded-full" style="background:rgba(110,231,183,.1);color:var(--accent)">Data Science</span> <span class="mono text-xs" style="color:rgba(228,228,236,.4)">Sep — Oct 2024 · 1 Week · Online</span>
+      </div>
+      <ul class="text-sm space-y-2" style="color:rgba(228,228,236,.6)">
+       <li class="flex gap-2"><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent);flex-shrink:0;margin-top:3px"></i>Hands-on data preprocessing with Python and pandas</li>
+       <li class="flex gap-2"><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent);flex-shrink:0;margin-top:3px"></i>Built visualizations with Matplotlib and Seaborn</li>
+       <li class="flex gap-2"><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent);flex-shrink:0;margin-top:3px"></i>Applied ML models using scikit-learn for analysis</li>
+      </ul>
+     </div>
+     <div class="intern-card">
+      <div class="flex flex-wrap items-center gap-3 mb-3">
+       <h3 class="font-bold text-lg">InternPe</h3><span class="mono text-xs px-3 py-1 rounded-full" style="background:rgba(129,140,248,.1);color:var(--accent2)">UI/UX Designer</span> <span class="mono text-xs" style="color:rgba(228,228,236,.4)">Oct — Nov 2024 · 1 Month · Online</span>
+      </div>
+      <ul class="text-sm space-y-2" style="color:rgba(228,228,236,.6)">
+       <li class="flex gap-2"><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent2);flex-shrink:0;margin-top:3px"></i>Developed wireframes for e-commerce with responsive layouts</li>
+       <li class="flex gap-2"><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent2);flex-shrink:0;margin-top:3px"></i>Conducted usability testing to gather feedback</li>
+       <li class="flex gap-2"><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent2);flex-shrink:0;margin-top:3px"></i>Applied user-centered design principles iteratively</li>
+      </ul>
+     </div>
+     <div class="intern-card">
+      <div class="flex flex-wrap items-center gap-3 mb-3">
+       <h3 class="font-bold text-lg">Software Testing</h3><span class="mono text-xs px-3 py-1 rounded-full" style="background:rgba(228,228,236,.08);color:rgba(228,228,236,.7)">QA Testing</span> <span class="mono text-xs" style="color:rgba(228,228,236,.4)">Jun — Jul 2025 · 1 Month · Chennai (Offline)</span>
+      </div>
+      <ul class="text-sm space-y-2" style="color:rgba(228,228,236,.6)">
+       <li class="flex gap-2"><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent);flex-shrink:0;margin-top:3px"></i>Learned Smoke, Functional, and Regression Testing</li>
+       <li class="flex gap-2"><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent);flex-shrink:0;margin-top:3px"></i>Created test cases for healthcare applications</li>
+       <li class="flex gap-2"><i data-lucide="arrow-right" style="width:14px;height:14px;color:var(--accent);flex-shrink:0;margin-top:3px"></i>Practiced RTM and simulated defect reporting</li>
+      </ul>
+     </div>
+    </div>
+   </section><!-- Certifications -->
+   <section id="certs" class="section-fade max-w-6xl mx-auto px-6 py-20">
+    <p class="mono text-xs mb-2" style="color:var(--accent)">05 //</p>
+    <h2 class="text-3xl sm:text-4xl font-bold mb-12">Certifications</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+     <div class="cert-card">
+      <p class="mono text-xs mb-2" style="color:var(--accent)">Aug 2024</p>
+      <h4 class="font-semibold mb-1">Introduction to Java</h4>
+      <p class="text-xs" style="color:rgba(228,228,236,.5)">Infosys Springboard</p>
+     </div>
+     <div class="cert-card">
+      <p class="mono text-xs mb-2" style="color:var(--accent2)">Sep 2024</p>
+      <h4 class="font-semibold mb-1">Python Developer Path</h4>
+      <p class="text-xs" style="color:rgba(228,228,236,.5)">MongoDB</p>
+     </div>
+     <div class="cert-card">
+      <p class="mono text-xs mb-2" style="color:var(--accent)">Oct 2024</p>
+      <h4 class="font-semibold mb-1">SAWIT.AI Learnathon</h4>
+      <p class="text-xs" style="color:rgba(228,228,236,.5)">Guvi</p>
+     </div>
+     <div class="cert-card">
+      <p class="mono text-xs mb-2" style="color:var(--accent2)">Jan 2025</p>
+      <h4 class="font-semibold mb-1">AI Fundamentals</h4>
+      <p class="text-xs" style="color:rgba(228,228,236,.5)">IBM Skillsbuild</p>
+     </div>
+     <div class="cert-card">
+      <p class="mono text-xs mb-2" style="color:var(--accent)">Apr 2025</p>
+      <h4 class="font-semibold mb-1">Azure Fundamentals</h4>
+      <p class="text-xs" style="color:rgba(228,228,236,.5)">Microsoft</p>
+     </div>
+     <div class="cert-card">
+      <p class="mono text-xs mb-2" style="color:var(--accent2)">May 2025</p>
+      <h4 class="font-semibold mb-1">Complete Intro to Web Dev</h4>
+      <p class="text-xs" style="color:rgba(228,228,236,.5)">Frontend Masters</p>
+     </div>
+     <div class="cert-card">
+      <p class="mono text-xs mb-2" style="color:var(--accent)">Jul 2025</p>
+      <h4 class="font-semibold mb-1">Cyber Security Fundamentals</h4>
+      <p class="text-xs" style="color:rgba(228,228,236,.5)">IBM Skillsbuild</p>
+     </div>
+    </div>
+   </section><!-- Contact -->
+   <section id="contact" class="section-fade max-w-6xl mx-auto px-6 py-20">
+    <p class="mono text-xs mb-2" style="color:var(--accent)">06 //</p>
+    <h2 class="text-3xl sm:text-4xl font-bold mb-12">Get In Touch</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"><a href="tel:+919360718953" class="flex items-center gap-3 p-5 rounded-xl transition-all hover:scale-105" style="background:var(--surface);border:1px solid rgba(255,255,255,.06)">
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(110,231,183,.1)">
+       <i data-lucide="phone" style="width:18px;height:18px;color:var(--accent)"></i>
+      </div>
+      <div>
+       <p class="text-xs" style="color:rgba(228,228,236,.4)">Phone</p>
+       <p class="text-sm font-medium">+91 9360718953</p>
+      </div></a> <a href="mailto:moganapriya0705@gmail.com" class="flex items-center gap-3 p-5 rounded-xl transition-all hover:scale-105" style="background:var(--surface);border:1px solid rgba(255,255,255,.06)">
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(129,140,248,.1)">
+       <i data-lucide="mail" style="width:18px;height:18px;color:var(--accent2)"></i>
+      </div>
+      <div>
+       <p class="text-xs" style="color:rgba(228,228,236,.4)">Email</p>
+       <p class="text-sm font-medium break-all">moganapriya0705@gmail.com</p>
+      </div></a>
+     <div class="flex items-center gap-3 p-5 rounded-xl" style="background:var(--surface);border:1px solid rgba(255,255,255,.06)">
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(110,231,183,.1)">
+       <i data-lucide="map-pin" style="width:18px;height:18px;color:var(--accent)"></i>
+      </div>
+      <div>
+       <p class="text-xs" style="color:rgba(228,228,236,.4)">Location</p>
+       <p class="text-sm font-medium">Chennai, Tamil Nadu</p>
+      </div>
+     </div><a href="https://www.linkedin.com/in/moganapriya-mohan-44ab7929b" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-5 rounded-xl transition-all hover:scale-105" style="background:var(--surface);border:1px solid rgba(255,255,255,.06)">
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(129,140,248,.1)">
+       <i data-lucide="linkedin" style="width:18px;height:18px;color:var(--accent2)"></i>
+      </div>
+      <div>
+       <p class="text-xs" style="color:rgba(228,228,236,.4)">LinkedIn</p>
+       <p class="text-sm font-medium">Connect →</p>
+      </div></a>
+    </div>
+   </section><!-- Footer -->
+   <footer class="border-t px-6 py-8 text-center" style="border-color:rgba(255,255,255,.05)">
+    <p class="text-xs" style="color:rgba(228,228,236,.3)">I do hereby declare that the above details are true to the best of my knowledge.</p>
+    <p class="text-xs mt-2" style="color:rgba(228,228,236,.2)">© 2025 Moganapriya M. Built with passion.</p>
+   </footer>
+  </div>
+  <script>
+const defaultConfig = {
+  hero_title: 'Moganapriya M',
+  hero_subtitle: 'Computer Science Student & Aspiring Developer',
+  objective_text: 'A highly motivated, detail-oriented and curious Computer Science student with a passion for solving real-world problems through technology. Seeking internship opportunities to apply my skills in software testing, web development, database design within a collaborative and learning-driven environment.',
+  background_color: '#0a0a0f',
+  surface_color: '#13131f',
+  text_color: '#e4e4ec',
+  accent_color: '#6ee7b7',
+  secondary_accent_color: '#818cf8',
+  font_family: 'Sora',
+  font_size: 16
+};
+
+function applyConfig(config) {
+  const t = (k) => config[k] || defaultConfig[k];
+  document.getElementById('hero-title').textContent = t('hero_title');
+  document.getElementById('hero-subtitle').textContent = t('hero_subtitle');
+  document.getElementById('objective-text').textContent = t('objective_text');
+
+  const root = document.documentElement;
+  root.style.setProperty('--bg', t('background_color'));
+  root.style.setProperty('--surface', t('surface_color'));
+  root.style.setProperty('--text', t('text_color'));
+  root.style.setProperty('--accent', t('accent_color'));
+  root.style.setProperty('--accent2', t('secondary_accent_color'));
+
+  document.body.style.color = t('text_color');
+  document.querySelector('.app-wrapper').style.background = t('background_color');
+
+  const font = t('font_family');
+  const baseStack = 'sans-serif';
+  const fullFont = `${font}, ${baseStack}`;
+  document.body.style.fontFamily = fullFont;
+
+  const baseSize = t('font_size');
+  document.getElementById('hero-title').style.fontSize = '';
+  document.getElementById('objective-text').style.fontSize = `${baseSize}px`;
+  document.querySelectorAll('.section-fade h2').forEach(h => h.style.fontSize = `${baseSize * 2}px`);
+}
+
+
+// Mobile menu
+document.getElementById('menu-btn').addEventListener('click', () => {
+  document.getElementById('mobile-nav').classList.toggle('hidden');
+});
+document.querySelectorAll('#mobile-nav a').forEach(a => a.addEventListener('click', () => document.getElementById('mobile-nav').classList.add('hidden')));
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+
+lucide.createIcons();
+</script>
+ </body>
+</html>
