@@ -175,21 +175,25 @@
         }
       }
       .typing-text {
+        display: inline-block;
         overflow: hidden;
         white-space: nowrap;
         border-right: 3px solid var(--accent);
-        width: 0;
+        max-width: 100%;
         animation:
-          typing 2.5s steps(35) 1s forwards,
+          typing 2.5s steps(35, end) 1s forwards,
           blink 0.7s step-end infinite;
       }
       .mono {
         font-family: "JetBrains Mono", monospace;
       }
-    </style>
-    <style>
-      body {
-        box-sizing: border-box;
+      @media (max-width: 640px) {
+        .typing-text {
+          white-space: normal;
+          border-right: none;
+          animation: none;
+          width: 100%;
+        }
       }
     </style>
   </head>
@@ -259,7 +263,7 @@
           <div class="flex justify-center mb-6">
             <p
               id="hero-subtitle"
-              class="typing-text mono text-base sm:text-lg"
+              class="typing-text mono text-base sm:text-lg text-center break-words"
               style="color: var(--accent2)"
             >
               Computer Science Student &amp; Aspiring Developer
