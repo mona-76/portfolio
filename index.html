@@ -312,6 +312,14 @@
               "
               >Get In Touch</a
             >
+            <a
+              href="resume.pdf"
+              download="Moganapriya_Resume.pdf"
+              class="px-6 py-3 rounded-full font-medium text-sm transition-all hover:scale-105"
+              style="background: var(--accent2); color: white"
+            >
+              Download Resume
+            </a>
           </div>
         </div>
       </section>
@@ -912,90 +920,185 @@
         <h2 class="text-3xl sm:text-4xl font-bold mb-12">Certifications</h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <!-- 1 -->
-          <div
-            class="cert-card cursor-pointer"
-            onclick="openCert('images/java.jpg')"
-          >
+          <div class="cert-card cursor-pointer">
             <p class="mono text-xs mb-2" style="color: var(--accent)">
               Aug 2024
             </p>
-            <h4 class="font-semibold mb-1">Introduction to Java</h4>
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">Introduction to Java</h4>
+              <button
+                onclick="openCert('images/java.jpg')"
+                class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
             <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
               Infosys Springboard
             </p>
           </div>
+
           <!-- 2 -->
-          <div
-            class="cert-card cursor-pointer"
-            onclick="openCert('images/python.jpg')"
-          >
+          <div class="cert-card cursor-pointer">
             <p class="mono text-xs mb-2" style="color: var(--accent2)">
               Sep 2024
             </p>
-            <h4 class="font-semibold mb-1">Python Developer Path</h4>
+            <!-- Title + View Button -->
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">Python Developer Path</h4>
+              <button
+                onclick="openCert('images/python.jpg')"
+                class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent2);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+            <!-- Subtitle -->
             <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
               MongoDB
             </p>
           </div>
+
           <!-- 3 -->
-          <div
-            class="cert-card cursor-pointer"
-            onclick="openCert('images/sawit.jpg')"
-          >
+          <div class="cert-card cursor-pointer">
             <p class="mono text-xs mb-2" style="color: var(--accent)">
               Oct 2024
             </p>
-            <h4 class="font-semibold mb-1">SAWIT.AI Learnathon</h4>
+            <!-- Title + View Button -->
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">SAWIT.AI Learnathon</h4>
+              <button
+                onclick="openCert('images/sawit.jpg')"
+                class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+            <!-- Subtitle -->
             <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">Guvi</p>
           </div>
+
           <!-- 4 -->
-          <div
-            class="cert-card cursor-pointer"
-            onclick="openCert('images/ai.jpg')"
-          >
+          <div class="cert-card cursor-pointer">
             <p class="mono text-xs mb-2" style="color: var(--accent2)">
               Jan 2025
             </p>
-            <h4 class="font-semibold mb-1">AI Fundamentals</h4>
+            <!-- Title + View Button -->
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">AI Fundamentals</h4>
+              <button
+                onclick="openCert('images/ai.jpg')"
+                class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent2);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+            <!-- Subtitle -->
             <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
               IBM Skillsbuild
             </p>
           </div>
+
           <!-- 5 -->
-          <div
-            class="cert-card cursor-pointer"
-            onclick="openCert('images/azure.jpg')"
-          >
+          <div class="cert-card cursor-pointer">
             <p class="mono text-xs mb-2" style="color: var(--accent)">
               Apr 2025
             </p>
-            <h4 class="font-semibold mb-1">Azure Fundamentals</h4>
+            <!-- Title + View Button -->
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">Azure Fundamentals</h4>
+              <button
+                onclick="openCert('images/azure.jpg')"
+                class="text-xs px-4 py-1.5 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+            <!-- Subtitle -->
             <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
               Microsoft
             </p>
           </div>
+
           <!-- 6 -->
-          <div
-            class="cert-card cursor-pointer"
-            onclick="openCert('images/webdev.jpg')"
-          >
+          <!-- 6 -->
+          <div class="cert-card cursor-pointer">
             <p class="mono text-xs mb-2" style="color: var(--accent2)">
               May 2025
             </p>
-            <h4 class="font-semibold mb-1">Complete Intro to Web Dev</h4>
+
+            <!-- Title + View Button -->
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">Complete Intro to Web Dev</h4>
+
+              <button
+                onclick="openCert('images/webdev.jpg')"
+                class="text-xs px-4 py-1.5 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent2);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+
+            <!-- Subtitle -->
             <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
               Frontend Masters
             </p>
           </div>
+
           <!-- 7 -->
-          <div
-            class="cert-card cursor-pointer"
-            onclick="openCert('images/cyber.jpg')"
-          >
+          <div class="cert-card cursor-pointer">
             <p class="mono text-xs mb-2" style="color: var(--accent)">
               Jul 2025
             </p>
-            <h4 class="font-semibold mb-1">Cyber Security Fundamentals</h4>
+
+            <!-- Title + View Button -->
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">Cyber Security Fundamentals</h4>
+
+              <button
+                onclick="openCert('images/cyber.jpg')"
+                class="text-xs px-4 py-1.5 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+
+            <!-- Subtitle -->
             <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
               IBM Skillsbuild
             </p>
@@ -1118,7 +1221,7 @@
           knowledge.
         </p>
         <p class="text-xs mt-2" style="color: rgba(228, 228, 236, 0.2)">
-          © 2026 Moganapriya M. Built with passion.
+          © 2025 Moganapriya M. Built with passion.
         </p>
       </footer>
     </div>
