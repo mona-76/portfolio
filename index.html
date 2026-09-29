@@ -3,13 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moganapriya M — Portfolio</title>
+
+    <title>Moganapriya M — Software Developer Portfolio</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+    <!-- Lucide Icons -->
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
     <style>
       html,
       body {
@@ -18,6 +26,7 @@
         min-height: 100vh;
         font-family: "Sora", sans-serif;
       }
+
       :root {
         --bg: #0a0a0f;
         --surface: #13131f;
@@ -25,20 +34,24 @@
         --accent: #6ee7b7;
         --accent2: #818cf8;
       }
+
       * {
         box-sizing: border-box;
         scroll-behavior: smooth;
       }
+
       body {
         background: var(--bg);
         color: var(--text);
         overflow-x: hidden;
       }
+
       .app-wrapper {
         min-height: 100vh;
         overflow-x: hidden;
         background: var(--bg);
       }
+
       .gradient-orb {
         position: absolute;
         border-radius: 50%;
@@ -46,6 +59,7 @@
         opacity: 0.15;
         pointer-events: none;
       }
+
       .section-fade {
         opacity: 0;
         transform: translateY(30px);
@@ -53,62 +67,82 @@
           opacity 0.7s ease,
           transform 0.7s ease;
       }
+
       .section-fade.visible {
         opacity: 1;
         transform: translateY(0);
       }
+
       .skill-tag {
         background: rgba(110, 231, 183, 0.08);
         border: 1px solid rgba(110, 231, 183, 0.2);
-        padding: 6px 16px;
+        padding: 6px 14px;
         border-radius: 999px;
         font-size: 13px;
         color: var(--accent);
         transition: all 0.3s;
       }
+
       .skill-tag:hover {
         background: rgba(110, 231, 183, 0.18);
         transform: translateY(-2px);
       }
-      .cert-card {
+
+      .cert-card,
+      .project-card,
+      .intern-card {
         background: var(--surface);
         border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 12px;
-        padding: 20px;
         transition: all 0.3s;
       }
+
+      .cert-card {
+        border-radius: 12px;
+        padding: 20px;
+      }
+
       .cert-card:hover {
         border-color: rgba(129, 140, 248, 0.3);
+        transform: translateY(-5px);
+      }
+
+      .project-card {
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .project-card:hover {
+        border-color: rgba(110, 231, 183, 0.25);
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .intern-card {
+        border-radius: 14px;
+        padding: 24px;
+        background: linear-gradient(
+          135deg,
+          rgba(129, 140, 248, 0.06),
+          rgba(110, 231, 183, 0.04)
+        );
+      }
+
+      .intern-card:hover {
+        border-color: rgba(129, 140, 248, 0.25);
         transform: translateY(-3px);
       }
-      .timeline-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--accent);
-        border: 3px solid var(--bg);
-        position: absolute;
-        left: -6px;
-        top: 6px;
-        z-index: 2;
-      }
-      .timeline-line {
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 1px;
-        background: rgba(110, 231, 183, 0.15);
-      }
+
       nav a {
         position: relative;
         color: rgba(228, 228, 236, 0.6);
         transition: color 0.3s;
       }
+
       nav a:hover,
       nav a.active {
         color: var(--accent);
       }
+
       nav a::after {
         content: "";
         position: absolute;
@@ -119,78 +153,47 @@
         background: var(--accent);
         transition: width 0.3s;
       }
+
       nav a:hover::after,
       nav a.active::after {
         width: 100%;
       }
-      .project-card {
-        background: var(--surface);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 16px;
-        overflow: hidden;
-        transition: all 0.4s;
+
+      .mono {
+        font-family: "JetBrains Mono", monospace;
       }
-      .project-card:hover {
-        border-color: rgba(110, 231, 183, 0.25);
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      }
-      .intern-card {
-        background: linear-gradient(
-          135deg,
-          rgba(129, 140, 248, 0.06),
-          rgba(110, 231, 183, 0.04)
-        );
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 14px;
-        padding: 24px;
-        transition: all 0.3s;
-      }
-      .intern-card:hover {
-        border-color: rgba(129, 140, 248, 0.2);
-      }
+
       @keyframes float {
         0%,
         100% {
           transform: translateY(0);
         }
+
         50% {
           transform: translateY(-12px);
         }
       }
+
       .float-anim {
         animation: float 6s ease-in-out infinite;
       }
+
       @keyframes typing {
         from {
           width: 0;
         }
+
         to {
           width: 100%;
         }
       }
-      #cert-modal img {
-        animation: zoomIn 0.3s ease;
-      }
 
-      @keyframes zoomIn {
-        from {
-          transform: scale(0.8);
-          opacity: 0;
-        }
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-      .cert-card:hover {
-        transform: translateY(-5px) scale(1.02);
-      }
       @keyframes blink {
         50% {
           border-color: transparent;
         }
       }
+
       .typing-text {
         display: inline-block;
         overflow: hidden;
@@ -201,9 +204,23 @@
           typing 2.5s steps(35, end) 1s forwards,
           blink 0.7s step-end infinite;
       }
-      .mono {
-        font-family: "JetBrains Mono", monospace;
+
+      #cert-modal img {
+        animation: zoomIn 0.3s ease;
       }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
       @media (max-width: 640px) {
         .typing-text {
           white-space: normal;
@@ -214,38 +231,53 @@
       }
     </style>
   </head>
+
   <body class="h-full">
     <div class="app-wrapper" id="app-wrapper">
-      <!-- Nav -->
+      <!-- ================= NAVIGATION ================= -->
+
       <nav
         class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0a0f]/80 border-b border-white/5"
       >
         <div
           class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
         >
-          <span class="text-lg font-bold" style="color: var(--accent)">M</span>
+          <span class="text-lg font-bold" style="color: var(--accent)">
+            M
+          </span>
+
           <div class="hidden md:flex gap-6 text-sm font-medium">
-            <a href="#about">About</a><a href="#skills">Skills</a
-            ><a href="#projects">Projects</a><a href="#experience">Experience</a
-            ><a href="#certs">Certifications</a><a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#certs">Certifications</a>
+            <a href="#contact">Contact</a>
           </div>
+
           <button id="menu-btn" class="md:hidden" style="color: var(--text)">
             <i data-lucide="menu" style="width: 22px; height: 22px"></i>
           </button>
         </div>
+
         <div
           id="mobile-nav"
           class="hidden md:hidden px-6 pb-4 flex flex-col gap-3 text-sm font-medium"
         >
-          <a href="#about">About</a><a href="#skills">Skills</a
-          ><a href="#projects">Projects</a><a href="#experience">Experience</a
-          ><a href="#certs">Certifications</a><a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#certs">Certifications</a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
-      <!-- Hero -->
+
+      <!-- ================= HERO ================= -->
+
       <section
         id="hero"
-        class="relative min-h-[90%] flex items-center justify-center px-6 pt-20 overflow-hidden"
+        class="relative min-h-[90vh] flex items-center justify-center px-6 pt-20 overflow-hidden"
       >
         <div
           class="gradient-orb"
@@ -257,6 +289,7 @@
             right: -150px;
           "
         ></div>
+
         <div
           class="gradient-orb"
           style="
@@ -267,42 +300,49 @@
             left: -100px;
           "
         ></div>
-        <div class="text-center relative z-10 max-w-3xl mx-auto">
+
+        <div class="text-center relative z-10 max-w-4xl mx-auto">
           <p class="mono text-sm mb-4" style="color: var(--accent)">
             // welcome to my space
           </p>
+
           <h1
             id="hero-title"
-            class="text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-4"
+            class="text-4xl sm:text-6xl md:text-7xl font-bold leading-tight mb-5"
           >
             Moganapriya M
           </h1>
+
           <div class="flex justify-center mb-6">
             <p
               id="hero-subtitle"
-              class="typing-text mono text-base sm:text-lg text-center break-words"
+              class="typing-text mono text-base sm:text-lg text-center"
               style="color: var(--accent2)"
             >
-              Computer Science Student &amp; Aspiring Developer
+              Computer Science Engineering Student
             </p>
           </div>
+
           <p
             id="objective-text"
-            class="text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-8"
-            style="color: rgba(228, 228, 236, 0.6)"
+            class="text-sm sm:text-base leading-relaxed max-w-3xl mx-auto mb-8"
+            style="color: rgba(228, 228, 236, 0.65)"
           >
-            Motivated Computer Science student passionate about building
-            scalable web applications and solving real-world problems. Seeking
-            opportunities to apply my skills in development, testing, and
-            data-driven solutions.
+            Computer Science Engineering student with hands-on experience in
+            Python, Java, SQL, web development, software testing, and database
+            management. Interested in software development, testing, application
+            engineering, AI/ML, and automation.
           </p>
+
           <div class="flex gap-4 justify-center flex-wrap">
             <a
               href="#projects"
               class="px-6 py-3 rounded-full font-medium text-sm transition-all hover:scale-105"
               style="background: var(--accent); color: #0a0a0f"
-              >View My Work</a
             >
+              View My Work
+            </a>
+
             <a
               href="#contact"
               class="px-6 py-3 rounded-full font-medium text-sm border transition-all hover:scale-105"
@@ -310,8 +350,10 @@
                 border-color: rgba(255, 255, 255, 0.15);
                 color: var(--text);
               "
-              >Get In Touch</a
             >
+              Get In Touch
+            </a>
+
             <a
               href="Moganapriya_resume.pdf"
               download="Moganapriya_Resume.pdf"
@@ -321,16 +363,59 @@
               Download Resume
             </a>
           </div>
+
+          <!-- Quick Stats -->
+
+          <div class="grid grid-cols-3 gap-4 max-w-xl mx-auto mt-12">
+            <div>
+              <p
+                class="text-2xl sm:text-3xl font-bold"
+                style="color: var(--accent)"
+              >
+                8.42
+              </p>
+              <p class="text-xs mt-1" style="color: rgba(228, 228, 236, 0.45)">
+                CGPA
+              </p>
+            </div>
+
+            <div>
+              <p
+                class="text-2xl sm:text-3xl font-bold"
+                style="color: var(--accent2)"
+              >
+                2027
+              </p>
+              <p class="text-xs mt-1" style="color: rgba(228, 228, 236, 0.45)">
+                Graduation
+              </p>
+            </div>
+
+            <div>
+              <p
+                class="text-2xl sm:text-3xl font-bold"
+                style="color: var(--accent)"
+              >
+                2+
+              </p>
+              <p class="text-xs mt-1" style="color: rgba(228, 228, 236, 0.45)">
+                Internships
+              </p>
+            </div>
+          </div>
         </div>
       </section>
-      <!-- About / Education -->
-      <section
-        id="about"
-        class="section-fade max-w-6xl mx-auto px-6 py-6 sm:py-20"
-      >
+
+      <!-- ================= ABOUT ================= -->
+
+      <section id="about" class="section-fade max-w-6xl mx-auto px-6 py-20">
         <p class="mono text-xs mb-2" style="color: var(--accent)">01 //</p>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-12">Education</h2>
+
+        <h2 class="text-3xl sm:text-4xl font-bold mb-12">About Me</h2>
+
         <div class="grid md:grid-cols-2 gap-6">
+          <!-- Summary -->
+
           <div
             class="p-6 rounded-2xl"
             style="
@@ -338,32 +423,42 @@
               border: 1px solid rgba(255, 255, 255, 0.06);
             "
           >
-            <div class="flex items-center gap-3 mb-3">
-              <div
-                class="w-10 h-10 rounded-xl flex items-center justify-center"
-                style="background: rgba(110, 231, 183, 0.1)"
-              >
-                <i
-                  data-lucide="graduation-cap"
-                  style="width: 20px; height: 20px; color: var(--accent)"
-                ></i>
-              </div>
-              <span class="mono text-xs" style="color: rgba(228, 228, 236, 0.4)"
-                >2023 — Present</span
-              >
-            </div>
-            <h3 class="font-semibold text-lg mb-1">
-              B.E — Computer Science &amp; Engineering
-            </h3>
-            <p class="text-sm mb-2" style="color: rgba(228, 228, 236, 0.5)">
-              St. Peter's College of Engineering and Technology, Chennai
-            </p>
-            <span
-              class="mono text-sm font-semibold"
-              style="color: var(--accent)"
-              >CGPA: 8.30</span
+            <div
+              class="w-10 h-10 rounded-xl flex items-center justify-center mb-5"
+              style="background: rgba(110, 231, 183, 0.1); color: var(--accent)"
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20 21a8 8 0 0 0-16 0"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+
+            <h3 class="font-semibold text-xl mb-4">Who I Am</h3>
+
+            <p
+              class="text-sm leading-7"
+              style="color: rgba(228, 228, 236, 0.6)"
+            >
+              I am a Computer Science Engineering student with a strong
+              foundation in programming, software testing, database management,
+              web development, and problem solving. I enjoy building practical
+              applications and exploring how technology can solve real-world
+              problems.
+            </p>
           </div>
+
+          <!-- Education -->
+
           <div
             class="p-6 rounded-2xl"
             style="
@@ -371,311 +466,509 @@
               border: 1px solid rgba(255, 255, 255, 0.06);
             "
           >
-            <div class="flex items-center gap-3 mb-3">
+            <div class="flex items-center gap-3 mb-5">
               <div
                 class="w-10 h-10 rounded-xl flex items-center justify-center"
                 style="background: rgba(129, 140, 248, 0.1)"
               >
                 <i
-                  data-lucide="school"
+                  data-lucide="graduation-cap"
                   style="width: 20px; height: 20px; color: var(--accent2)"
                 ></i>
               </div>
-              <span class="mono text-xs" style="color: rgba(228, 228, 236, 0.4)"
-                >2022 — 2023</span
-              >
+
+              <div>
+                <p class="mono text-xs" style="color: rgba(228, 228, 236, 0.4)">
+                  2023 — 2027
+                </p>
+
+                <h3 class="font-semibold">Education</h3>
+              </div>
             </div>
-            <h3 class="font-semibold text-lg mb-1">HSC</h3>
-            <p class="text-sm mb-2" style="color: rgba(228, 228, 236, 0.5)">
-              Leo Matriculation Higher Secondary School, Chennai
+
+            <h3 class="font-semibold text-lg mb-1">
+              B.E. Computer Science & Engineering
+            </h3>
+
+            <p class="text-sm mb-3" style="color: rgba(228, 228, 236, 0.5)">
+              St. Peter's College of Engineering and Technology
             </p>
+
             <span
               class="mono text-sm font-semibold"
-              style="color: var(--accent2)"
-              >Percentage: 83.3%</span
+              style="color: var(--accent)"
             >
+              CGPA: 8.42
+            </span>
+
+            <div class="border-t border-white/5 my-5"></div>
+
+            <p
+              class="mono text-xs mb-1"
+              style="color: rgba(228, 228, 236, 0.4)"
+            >
+              2023
+            </p>
+
+            <h3 class="font-semibold">HSC</h3>
+
+            <p class="text-sm" style="color: rgba(228, 228, 236, 0.5)">
+              Leo Matriculation Higher Secondary School
+            </p>
+
+            <p
+              class="mono text-sm font-semibold mt-2"
+              style="color: var(--accent2)"
+            >
+              Percentage: 83.33%
+            </p>
           </div>
         </div>
       </section>
-      <!-- Skills -->
+
+      <!-- ================= SKILLS ================= -->
+
       <section id="skills" class="section-fade max-w-6xl mx-auto px-6 py-20">
         <p class="mono text-xs mb-2" style="color: var(--accent)">02 //</p>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-12">Skills &amp; Tools</h2>
-        <div class="grid sm:grid-cols-3 gap-8">
-          <div>
+
+        <h2 class="text-3xl sm:text-4xl font-bold mb-12">Technical Skills</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Programming -->
+
+          <div class="cert-card">
             <h3
-              class="text-sm font-semibold uppercase tracking-wider mb-4"
+              class="text-sm font-semibold uppercase tracking-wider mb-5"
               style="color: var(--accent)"
             >
-              Technical
+              Programming
             </h3>
+
             <div class="flex flex-wrap gap-2">
-              <span class="skill-tag">SQL</span
-              ><span class="skill-tag">JavaScript</span
-              ><span class="skill-tag">HTML</span
-              ><span class="skill-tag">CSS</span
-              ><span class="skill-tag">Python</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">SQL</span>
             </div>
           </div>
-          <div>
+
+          <!-- Database -->
+
+          <div class="cert-card">
             <h3
-              class="text-sm font-semibold uppercase tracking-wider mb-4"
+              class="text-sm font-semibold uppercase tracking-wider mb-5"
+              style="color: var(--accent2)"
+            >
+              Data & Database
+            </h3>
+
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-tag"
+                style="
+                  color: var(--accent2);
+                  background: rgba(129, 140, 248, 0.08);
+                  border-color: rgba(129, 140, 248, 0.2);
+                "
+              >
+                MySQL
+              </span>
+
+              <span
+                class="skill-tag"
+                style="
+                  color: var(--accent2);
+                  background: rgba(129, 140, 248, 0.08);
+                  border-color: rgba(129, 140, 248, 0.2);
+                "
+              >
+                Relational Databases
+              </span>
+
+              <span
+                class="skill-tag"
+                style="
+                  color: var(--accent2);
+                  background: rgba(129, 140, 248, 0.08);
+                  border-color: rgba(129, 140, 248, 0.2);
+                "
+              >
+                Data Handling
+              </span>
+            </div>
+          </div>
+
+          <!-- Testing -->
+
+          <div class="cert-card">
+            <h3
+              class="text-sm font-semibold uppercase tracking-wider mb-5"
+              style="color: var(--accent)"
+            >
+              Software Testing
+            </h3>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Manual Testing</span>
+              <span class="skill-tag">Test Case Design</span>
+              <span class="skill-tag">Debugging</span>
+              <span class="skill-tag">Automation Testing</span>
+              <span class="skill-tag">ATF</span>
+            </div>
+          </div>
+
+          <!-- Python / ML -->
+
+          <div class="cert-card">
+            <h3
+              class="text-sm font-semibold uppercase tracking-wider mb-5"
+              style="color: var(--accent2)"
+            >
+              Python & AI/ML
+            </h3>
+
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-tag"
+                style="
+                  color: var(--accent2);
+                  background: rgba(129, 140, 248, 0.08);
+                  border-color: rgba(129, 140, 248, 0.2);
+                "
+              >
+                NumPy
+              </span>
+
+              <span
+                class="skill-tag"
+                style="
+                  color: var(--accent2);
+                  background: rgba(129, 140, 248, 0.08);
+                  border-color: rgba(129, 140, 248, 0.2);
+                "
+              >
+                Pandas
+              </span>
+
+              <span
+                class="skill-tag"
+                style="
+                  color: var(--accent2);
+                  background: rgba(129, 140, 248, 0.08);
+                  border-color: rgba(129, 140, 248, 0.2);
+                "
+              >
+                Scikit-learn
+              </span>
+
+              <span
+                class="skill-tag"
+                style="
+                  color: var(--accent2);
+                  background: rgba(129, 140, 248, 0.08);
+                  border-color: rgba(129, 140, 248, 0.2);
+                "
+              >
+                TensorFlow
+              </span>
+            </div>
+          </div>
+
+          <!-- Web -->
+
+          <div class="cert-card">
+            <h3
+              class="text-sm font-semibold uppercase tracking-wider mb-5"
+              style="color: var(--accent)"
+            >
+              Web Technologies
+            </h3>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">JavaScript</span>
+            </div>
+          </div>
+
+          <!-- Tools -->
+
+          <div class="cert-card">
+            <h3
+              class="text-sm font-semibold uppercase tracking-wider mb-5"
               style="color: var(--accent2)"
             >
               Tools
             </h3>
+
             <div class="flex flex-wrap gap-2">
               <span
                 class="skill-tag"
                 style="
+                  color: var(--accent2);
                   background: rgba(129, 140, 248, 0.08);
                   border-color: rgba(129, 140, 248, 0.2);
-                  color: var(--accent2);
                 "
-                >Excel</span
               >
+                GitHub
+              </span>
+
               <span
                 class="skill-tag"
                 style="
+                  color: var(--accent2);
                   background: rgba(129, 140, 248, 0.08);
                   border-color: rgba(129, 140, 248, 0.2);
-                  color: var(--accent2);
                 "
-                >VS Code</span
               >
+                VS Code
+              </span>
+
               <span
                 class="skill-tag"
                 style="
+                  color: var(--accent2);
                   background: rgba(129, 140, 248, 0.08);
                   border-color: rgba(129, 140, 248, 0.2);
-                  color: var(--accent2);
                 "
-                >Git</span
               >
+                Postman
+              </span>
+
               <span
                 class="skill-tag"
                 style="
+                  color: var(--accent2);
                   background: rgba(129, 140, 248, 0.08);
                   border-color: rgba(129, 140, 248, 0.2);
-                  color: var(--accent2);
                 "
-                >Figma</span
               >
-            </div>
-          </div>
-          <div>
-            <h3
-              class="text-sm font-semibold uppercase tracking-wider mb-4"
-              style="color: rgba(228, 228, 236, 0.5)"
-            >
-              Soft Skills
-            </h3>
-            <div class="flex flex-wrap gap-2">
-              <span
-                class="skill-tag"
-                style="
-                  background: rgba(228, 228, 236, 0.04);
-                  border-color: rgba(228, 228, 236, 0.1);
-                  color: rgba(228, 228, 236, 0.7);
-                "
-                >Problem Solving</span
-              >
-              <span
-                class="skill-tag"
-                style="
-                  background: rgba(228, 228, 236, 0.04);
-                  border-color: rgba(228, 228, 236, 0.1);
-                  color: rgba(228, 228, 236, 0.7);
-                "
-                >Project Management</span
-              >
-              <span
-                class="skill-tag"
-                style="
-                  background: rgba(228, 228, 236, 0.04);
-                  border-color: rgba(228, 228, 236, 0.1);
-                  color: rgba(228, 228, 236, 0.7);
-                "
-                >Critical Thinking</span
-              >
-              <span
-                class="skill-tag"
-                style="
-                  background: rgba(228, 228, 236, 0.04);
-                  border-color: rgba(228, 228, 236, 0.1);
-                  color: rgba(228, 228, 236, 0.7);
-                "
-                >Adaptability</span
-              >
-              <span
-                class="skill-tag"
-                style="
-                  background: rgba(228, 228, 236, 0.04);
-                  border-color: rgba(228, 228, 236, 0.1);
-                  color: rgba(228, 228, 236, 0.7);
-                "
-                >Time Management</span
-              >
+                ServiceNow
+              </span>
             </div>
           </div>
         </div>
+
+        <!-- Core Skills -->
+
         <div class="mt-8">
           <h3
-            class="text-sm font-semibold uppercase tracking-wider mb-3"
+            class="text-sm font-semibold uppercase tracking-wider mb-4"
             style="color: rgba(228, 228, 236, 0.5)"
           >
-            Languages Known
+            Core Skills
           </h3>
-          <div class="flex gap-2">
-            <span
-              class="skill-tag"
-              style="
-                background: rgba(228, 228, 236, 0.04);
-                border-color: rgba(228, 228, 236, 0.1);
-                color: rgba(228, 228, 236, 0.7);
-              "
-              >English</span
-            ><span
-              class="skill-tag"
-              style="
-                background: rgba(228, 228, 236, 0.04);
-                border-color: rgba(228, 228, 236, 0.1);
-                color: rgba(228, 228, 236, 0.7);
-              "
-              >Tamil</span
-            >
+
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">SDLC</span>
+            <span class="skill-tag">Testing</span>
+            <span class="skill-tag">Teamwork</span>
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Adaptability</span>
           </div>
         </div>
       </section>
-      <!-- Projects -->
+
+      <!-- ================= PROJECTS ================= -->
+
       <section id="projects" class="section-fade max-w-6xl mx-auto px-6 py-20">
         <p class="mono text-xs mb-2" style="color: var(--accent)">03 //</p>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-12">Projects</h2>
+
+        <h2 class="text-3xl sm:text-4xl font-bold mb-12">Project Work</h2>
+
         <div class="grid md:grid-cols-2 gap-6">
+          <!-- Farm Assist -->
+
           <div class="project-card">
             <div
-              class="p-4"
+              class="p-5"
               style="
                 background: linear-gradient(
                   135deg,
-                  rgba(110, 231, 183, 0.1),
-                  rgba(129, 140, 248, 0.05)
+                  rgba(110, 231, 183, 0.12),
+                  rgba(129, 140, 248, 0.07)
                 );
               "
             >
-              <div class="h-32 flex items-center justify-center text-5xl">
+              <div class="h-32 flex items-center justify-center text-6xl">
+                🌱
+              </div>
+            </div>
+
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="font-bold text-xl mb-2">Farm Assist</h3>
+
+                <span
+                  class="mono text-xs px-2 py-1 rounded"
+                  style="
+                    background: rgba(110, 231, 183, 0.1);
+                    color: var(--accent);
+                  "
+                >
+                  AI / ML
+                </span>
+              </div>
+
+              <p class="text-xs mb-4" style="color: rgba(228, 228, 236, 0.45)">
+                Smart Agriculture Assistant
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 mb-5">
+                <span
+                  class="mono text-xs px-2 py-1 rounded"
+                  style="
+                    background: rgba(110, 231, 183, 0.1);
+                    color: var(--accent);
+                  "
+                >
+                  Python
+                </span>
+
+                <span
+                  class="mono text-xs px-2 py-1 rounded"
+                  style="
+                    background: rgba(110, 231, 183, 0.1);
+                    color: var(--accent);
+                  "
+                >
+                  TensorFlow
+                </span>
+
+                <span
+                  class="mono text-xs px-2 py-1 rounded"
+                  style="
+                    background: rgba(110, 231, 183, 0.1);
+                    color: var(--accent);
+                  "
+                >
+                  MySQL
+                </span>
+
+                <span
+                  class="mono text-xs px-2 py-1 rounded"
+                  style="
+                    background: rgba(110, 231, 183, 0.1);
+                    color: var(--accent);
+                  "
+                >
+                  JavaScript
+                </span>
+              </div>
+
+              <ul
+                class="text-sm space-y-3"
+                style="color: rgba(228, 228, 236, 0.6)"
+              >
+                <li class="flex gap-2">
+                  <i
+                    data-lucide="check"
+                    style="
+                      width: 14px;
+                      height: 14px;
+                      color: var(--accent);
+                      flex-shrink: 0;
+                      margin-top: 3px;
+                    "
+                  ></i>
+                  Developed an AI-powered web application for crop and plant
+                  management.
+                </li>
+
+                <li class="flex gap-2">
+                  <i
+                    data-lucide="check"
+                    style="
+                      width: 14px;
+                      height: 14px;
+                      color: var(--accent);
+                      flex-shrink: 0;
+                      margin-top: 3px;
+                    "
+                  ></i>
+                  Implemented plant disease detection and crop recommendation
+                  features using Python and TensorFlow.
+                </li>
+
+                <li class="flex gap-2">
+                  <i
+                    data-lucide="check"
+                    style="
+                      width: 14px;
+                      height: 14px;
+                      color: var(--accent);
+                      flex-shrink: 0;
+                      margin-top: 3px;
+                    "
+                  ></i>
+                  Designed a user-friendly interface and integrated MySQL for
+                  data management.
+                </li>
+              </ul>
+
+              <a
+                href="https://github.com/mona-76/farmassist"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 mt-6 text-sm font-medium"
+                style="color: var(--accent)"
+              >
+                <i data-lucide="github" style="width: 16px; height: 16px"></i>
+                View on GitHub →
+              </a>
+            </div>
+          </div>
+
+          <!-- Bank Management -->
+
+          <div class="project-card">
+            <div
+              class="p-5"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  rgba(129, 140, 248, 0.12),
+                  rgba(110, 231, 183, 0.06)
+                );
+              "
+            >
+              <div class="h-32 flex items-center justify-center text-6xl">
                 🏦
               </div>
             </div>
+
             <div class="p-6">
               <h3 class="font-bold text-xl mb-2">Bank Management System</h3>
-              <div class="flex flex-wrap gap-1.5 mb-4">
-                <span
-                  class="mono text-xs px-2 py-1 rounded"
-                  style="
-                    background: rgba(110, 231, 183, 0.1);
-                    color: var(--accent);
-                  "
-                  >SQL</span
-                ><span
-                  class="mono text-xs px-2 py-1 rounded"
-                  style="
-                    background: rgba(110, 231, 183, 0.1);
-                    color: var(--accent);
-                  "
-                  >Python</span
-                >
-              </div>
-              <ul
-                class="text-sm space-y-2"
-                style="color: rgba(228, 228, 236, 0.6)"
-              >
-                <li class="flex gap-2">
-                  <i
-                    data-lucide="check"
-                    style="
-                      width: 14px;
-                      height: 14px;
-                      color: var(--accent);
-                      flex-shrink: 0;
-                      margin-top: 3px;
-                    "
-                  ></i
-                  >Built secure core banking app with account &amp; transaction
-                  modules
-                </li>
-                <li class="flex gap-2">
-                  <i
-                    data-lucide="check"
-                    style="
-                      width: 14px;
-                      height: 14px;
-                      color: var(--accent);
-                      flex-shrink: 0;
-                      margin-top: 3px;
-                    "
-                  ></i
-                  >Used relational DB with primary and foreign keys
-                </li>
-                <li class="flex gap-2">
-                  <i
-                    data-lucide="check"
-                    style="
-                      width: 14px;
-                      height: 14px;
-                      color: var(--accent);
-                      flex-shrink: 0;
-                      margin-top: 3px;
-                    "
-                  ></i
-                  >Applied basic encryption for data protection
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="project-card">
-            <div
-              class="p-4"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  rgba(129, 140, 248, 0.1),
-                  rgba(110, 231, 183, 0.05)
-                );
-              "
-            >
-              <div class="h-32 flex items-center justify-center text-5xl">
-                🎨
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="font-bold text-xl mb-2">Event Web Portfolio</h3>
-              <div class="flex flex-wrap gap-1.5 mb-4">
+
+              <p class="text-xs mb-4" style="color: rgba(228, 228, 236, 0.45)">
+                Banking & Transaction Management
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 mb-5">
                 <span
                   class="mono text-xs px-2 py-1 rounded"
                   style="
                     background: rgba(129, 140, 248, 0.1);
                     color: var(--accent2);
                   "
-                  >HTML</span
-                ><span
-                  class="mono text-xs px-2 py-1 rounded"
-                  style="
-                    background: rgba(129, 140, 248, 0.1);
-                    color: var(--accent2);
-                  "
-                  >CSS</span
-                ><span
-                  class="mono text-xs px-2 py-1 rounded"
-                  style="
-                    background: rgba(129, 140, 248, 0.1);
-                    color: var(--accent2);
-                  "
-                  >JavaScript</span
                 >
+                  Python
+                </span>
+
+                <span
+                  class="mono text-xs px-2 py-1 rounded"
+                  style="
+                    background: rgba(129, 140, 248, 0.1);
+                    color: var(--accent2);
+                  "
+                >
+                  MySQL
+                </span>
               </div>
+
               <ul
-                class="text-sm space-y-2"
+                class="text-sm space-y-3"
                 style="color: rgba(228, 228, 236, 0.6)"
               >
                 <li class="flex gap-2">
@@ -688,9 +981,11 @@
                       flex-shrink: 0;
                       margin-top: 3px;
                     "
-                  ></i
-                  >Created responsive event website with modern design
+                  ></i>
+                  Designed and developed a banking management system using
+                  Python and MySQL.
                 </li>
+
                 <li class="flex gap-2">
                   <i
                     data-lucide="check"
@@ -701,9 +996,10 @@
                       flex-shrink: 0;
                       margin-top: 3px;
                     "
-                  ></i
-                  >Applied modular design with comments for maintainability
+                  ></i>
+                  Implemented account and transaction management.
                 </li>
+
                 <li class="flex gap-2">
                   <i
                     data-lucide="check"
@@ -714,41 +1010,80 @@
                       flex-shrink: 0;
                       margin-top: 3px;
                     "
-                  ></i
-                  >Used DOM manipulation for dynamic filters &amp; pop-ups
+                  ></i>
+                  Applied relational database concepts and basic encryption
+                  techniques.
+                </li>
+
+                <li class="flex gap-2">
+                  <i
+                    data-lucide="check"
+                    style="
+                      width: 14px;
+                      height: 14px;
+                      color: var(--accent2);
+                      flex-shrink: 0;
+                      margin-top: 3px;
+                    "
+                  ></i>
+                  Performed testing and debugging to improve reliability.
                 </li>
               </ul>
+
+              <a
+                href="https://github.com/mona-76"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 mt-6 text-sm font-medium"
+                style="color: var(--accent2)"
+              >
+                <i data-lucide="github" style="width: 16px; height: 16px"></i>
+                GitHub Profile →
+              </a>
             </div>
           </div>
         </div>
       </section>
-      <!-- Experience -->
+
+      <!-- ================= EXPERIENCE ================= -->
+
       <section
         id="experience"
         class="section-fade max-w-6xl mx-auto px-6 py-20"
       >
         <p class="mono text-xs mb-2" style="color: var(--accent)">04 //</p>
+
         <h2 class="text-3xl sm:text-4xl font-bold mb-12">
           Internship Experience
         </h2>
+
         <div class="space-y-6">
+          <!-- Weedo -->
+
           <div class="intern-card">
-            <div class="flex flex-wrap items-center gap-3 mb-3">
-              <h3 class="font-bold text-lg">Marcello Tech</h3>
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+              <h3 class="font-bold text-lg">Weedo Infotech</h3>
+
               <span
                 class="mono text-xs px-3 py-1 rounded-full"
                 style="
                   background: rgba(110, 231, 183, 0.1);
                   color: var(--accent);
                 "
-                >Data Science</span
               >
-              <span class="mono text-xs" style="color: rgba(228, 228, 236, 0.4)"
-                >Sep — Oct 2024 · 1 Week · Online</span
+                Full Stack Development Intern
+              </span>
+
+              <span
+                class="mono text-xs"
+                style="color: rgba(228, 228, 236, 0.4)"
               >
+                May 2026 — Jun 2026
+              </span>
             </div>
+
             <ul
-              class="text-sm space-y-2"
+              class="text-sm space-y-3"
               style="color: rgba(228, 228, 236, 0.6)"
             >
               <li class="flex gap-2">
@@ -761,9 +1096,11 @@
                     flex-shrink: 0;
                     margin-top: 3px;
                   "
-                ></i
-                >Hands-on data preprocessing with Python and pandas
+                ></i>
+                Developed web applications using Java and full-stack development
+                concepts.
               </li>
+
               <li class="flex gap-2">
                 <i
                   data-lucide="arrow-right"
@@ -774,9 +1111,11 @@
                     flex-shrink: 0;
                     margin-top: 3px;
                   "
-                ></i
-                >Built visualizations with Matplotlib and Seaborn
+                ></i>
+                Worked with front-end and back-end technologies to build
+                responsive applications.
               </li>
+
               <li class="flex gap-2">
                 <i
                   data-lucide="arrow-right"
@@ -787,28 +1126,39 @@
                     flex-shrink: 0;
                     margin-top: 3px;
                   "
-                ></i
-                >Applied ML models using scikit-learn for analysis
+                ></i>
+                Gained practical experience in development, debugging, testing,
+                and project implementation.
               </li>
             </ul>
           </div>
+
+          <!-- NSIC -->
+
           <div class="intern-card">
-            <div class="flex flex-wrap items-center gap-3 mb-3">
-              <h3 class="font-bold text-lg">InternPe</h3>
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+              <h3 class="font-bold text-lg">NSIC Technical Services Centre</h3>
+
               <span
                 class="mono text-xs px-3 py-1 rounded-full"
                 style="
                   background: rgba(129, 140, 248, 0.1);
                   color: var(--accent2);
                 "
-                >UI/UX Designer</span
               >
-              <span class="mono text-xs" style="color: rgba(228, 228, 236, 0.4)"
-                >Oct — Nov 2024 · 1 Month · Online</span
+                Automation Testing with Scripting
+              </span>
+
+              <span
+                class="mono text-xs"
+                style="color: rgba(228, 228, 236, 0.4)"
               >
+                Aug 2026 — Sep 2026
+              </span>
             </div>
+
             <ul
-              class="text-sm space-y-2"
+              class="text-sm space-y-3"
               style="color: rgba(228, 228, 236, 0.6)"
             >
               <li class="flex gap-2">
@@ -821,9 +1171,11 @@
                     flex-shrink: 0;
                     margin-top: 3px;
                   "
-                ></i
-                >Developed wireframes for e-commerce with responsive layouts
+                ></i>
+                Completed training in Automation Testing with Scripting under
+                the ATI Scheme of MSME.
               </li>
+
               <li class="flex gap-2">
                 <i
                   data-lucide="arrow-right"
@@ -834,9 +1186,11 @@
                     flex-shrink: 0;
                     margin-top: 3px;
                   "
-                ></i
-                >Conducted usability testing to gather feedback
+                ></i>
+                Gained practical exposure to software testing, test automation,
+                and scripting concepts.
               </li>
+
               <li class="flex gap-2">
                 <i
                   data-lucide="arrow-right"
@@ -847,26 +1201,34 @@
                     flex-shrink: 0;
                     margin-top: 3px;
                   "
-                ></i
-                >Applied user-centered design principles iteratively
+                ></i>
+                Successfully completed the training with an A1 grade.
               </li>
             </ul>
           </div>
+          <!-- ServiceNow University -->
           <div class="intern-card">
             <div class="flex flex-wrap items-center gap-3 mb-3">
-              <h3 class="font-bold text-lg">Software Testing</h3>
+              <h3 class="font-bold text-lg">ServiceNow University</h3>
+
               <span
                 class="mono text-xs px-3 py-1 rounded-full"
                 style="
-                  background: rgba(228, 228, 236, 0.08);
-                  color: rgba(228, 228, 236, 0.7);
+                  background: rgba(110, 231, 183, 0.1);
+                  color: var(--accent);
                 "
-                >QA Testing</span
               >
-              <span class="mono text-xs" style="color: rgba(228, 228, 236, 0.4)"
-                >Jun — Jul 2025 · 1 Month · Chennai (Offline)</span
+                Virtual Internship Program
+              </span>
+
+              <span
+                class="mono text-xs"
+                style="color: rgba(228, 228, 236, 0.4)"
               >
+                Jun 2026 · Virtual
+              </span>
             </div>
+
             <ul
               class="text-sm space-y-2"
               style="color: rgba(228, 228, 236, 0.6)"
@@ -881,9 +1243,11 @@
                     flex-shrink: 0;
                     margin-top: 3px;
                   "
-                ></i
-                >Learned Smoke, Functional, and Regression Testing
+                ></i>
+                Completed training in ServiceNow Administration Fundamentals and
+                Flow Designer
               </li>
+
               <li class="flex gap-2">
                 <i
                   data-lucide="arrow-right"
@@ -894,9 +1258,11 @@
                     flex-shrink: 0;
                     margin-top: 3px;
                   "
-                ></i
-                >Created test cases for healthcare applications
+                ></i>
+                Gained practical exposure to ServiceNow administration, workflow
+                automation, reporting, and Automated Test Framework (ATF)
               </li>
+
               <li class="flex gap-2">
                 <i
                   data-lucide="arrow-right"
@@ -907,27 +1273,110 @@
                     flex-shrink: 0;
                     margin-top: 3px;
                   "
-                ></i
-                >Practiced RTM and simulated defect reporting
+                ></i>
+                Worked with AI/Agentic AI concepts, application workflows, and
+                platform-based automation
+              </li>
+            </ul>
+          </div>
+
+          <!-- 8 Queens -->
+          <div class="intern-card">
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <h3 class="font-bold text-lg">8 Queens</h3>
+
+              <span
+                class="mono text-xs px-3 py-1 rounded-full"
+                style="
+                  background: rgba(129, 140, 248, 0.1);
+                  color: var(--accent2);
+                "
+              >
+                Software Testing Intern
+              </span>
+
+              <span
+                class="mono text-xs"
+                style="color: rgba(228, 228, 236, 0.4)"
+              >
+                Jun — Jul 2025 · 1 Month
+              </span>
+            </div>
+
+            <ul
+              class="text-sm space-y-2"
+              style="color: rgba(228, 228, 236, 0.6)"
+            >
+              <li class="flex gap-2">
+                <i
+                  data-lucide="arrow-right"
+                  style="
+                    width: 14px;
+                    height: 14px;
+                    color: var(--accent2);
+                    flex-shrink: 0;
+                    margin-top: 3px;
+                  "
+                ></i>
+                Gained hands-on exposure to software testing and quality
+                assurance processes
+              </li>
+
+              <li class="flex gap-2">
+                <i
+                  data-lucide="arrow-right"
+                  style="
+                    width: 14px;
+                    height: 14px;
+                    color: var(--accent2);
+                    flex-shrink: 0;
+                    margin-top: 3px;
+                  "
+                ></i>
+                Worked with test cases, functional testing, debugging, and
+                defect identification
+              </li>
+
+              <li class="flex gap-2">
+                <i
+                  data-lucide="arrow-right"
+                  style="
+                    width: 14px;
+                    height: 14px;
+                    color: var(--accent2);
+                    flex-shrink: 0;
+                    margin-top: 3px;
+                  "
+                ></i>
+                Applied software testing concepts to improve application quality
+                and reliability
               </li>
             </ul>
           </div>
         </div>
       </section>
+
+      <!-- ================= CERTIFICATIONS ================= -->
+
       <!-- Certifications -->
       <section id="certs" class="section-fade max-w-6xl mx-auto px-6 py-20">
         <p class="mono text-xs mb-2" style="color: var(--accent)">05 //</p>
         <h2 class="text-3xl sm:text-4xl font-bold mb-12">Certifications</h2>
+
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <!-- 1 -->
+          <!-- 1 - ServiceNow -->
           <div class="cert-card cursor-pointer">
             <p class="mono text-xs mb-2" style="color: var(--accent)">
-              Aug 2024
+              Jun 2026
             </p>
+
             <div class="flex items-center justify-between mb-1">
-              <h4 class="font-semibold">Introduction to Java</h4>
+              <h4 class="font-semibold">
+                ServiceNow Administration Fundamentals &amp; Flow Designer
+              </h4>
+
               <button
-                onclick="openCert('images/java.jpg')"
+                onclick="openCert('images/servicenow.png')"
                 class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
                 style="
                   background-color: var(--accent);
@@ -938,21 +1387,25 @@
                 View
               </button>
             </div>
+
             <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
-              Infosys Springboard
+              ServiceNow University
             </p>
           </div>
 
-          <!-- 2 -->
+          <!-- 2 - Journey to Cloud -->
           <div class="cert-card cursor-pointer">
             <p class="mono text-xs mb-2" style="color: var(--accent2)">
-              Sep 2024
+              Feb 2026
             </p>
-            <!-- Title + View Button -->
+
             <div class="flex items-center justify-between mb-1">
-              <h4 class="font-semibold">Python Developer Path</h4>
+              <h4 class="font-semibold">
+                Journey to Cloud: Orchestrating your Solution
+              </h4>
+
               <button
-                onclick="openCert('images/python.jpg')"
+                onclick="openCert('images/cloud.png')"
                 class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
                 style="
                   background-color: var(--accent2);
@@ -963,22 +1416,23 @@
                 View
               </button>
             </div>
-            <!-- Subtitle -->
+
             <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
-              MongoDB
+              IBM SkillsBuild
             </p>
           </div>
 
-          <!-- 3 -->
+          <!-- 3 - Software Engineering Fundamentals -->
           <div class="cert-card cursor-pointer">
             <p class="mono text-xs mb-2" style="color: var(--accent)">
-              Oct 2024
+              Feb 2026
             </p>
-            <!-- Title + View Button -->
+
             <div class="flex items-center justify-between mb-1">
-              <h4 class="font-semibold">SAWIT.AI Learnathon</h4>
+              <h4 class="font-semibold">Software Engineering Fundamentals</h4>
+
               <button
-                onclick="openCert('images/sawit.jpg')"
+                onclick="openCert('images/software-engineering.png')"
                 class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
                 style="
                   background-color: var(--accent);
@@ -989,99 +1443,18 @@
                 View
               </button>
             </div>
-            <!-- Subtitle -->
-            <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">Guvi</p>
+
+            <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
+              Software Development and Testing · Infosys Springboard
+            </p>
           </div>
 
-          <!-- 4 -->
+          <!-- 4 - Cyber Security -->
           <div class="cert-card cursor-pointer">
             <p class="mono text-xs mb-2" style="color: var(--accent2)">
-              Jan 2025
-            </p>
-            <!-- Title + View Button -->
-            <div class="flex items-center justify-between mb-1">
-              <h4 class="font-semibold">AI Fundamentals</h4>
-              <button
-                onclick="openCert('images/ai.jpg')"
-                class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
-                style="
-                  background-color: var(--accent2);
-                  color: #0a0a0f;
-                  border: none;
-                "
-              >
-                View
-              </button>
-            </div>
-            <!-- Subtitle -->
-            <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
-              IBM Skillsbuild
-            </p>
-          </div>
-
-          <!-- 5 -->
-          <div class="cert-card cursor-pointer">
-            <p class="mono text-xs mb-2" style="color: var(--accent)">
-              Apr 2025
-            </p>
-            <!-- Title + View Button -->
-            <div class="flex items-center justify-between mb-1">
-              <h4 class="font-semibold">Azure Fundamentals</h4>
-              <button
-                onclick="openCert('images/azure.jpg')"
-                class="text-xs px-4 py-1.5 rounded-full transition-all hover:scale-105"
-                style="
-                  background-color: var(--accent);
-                  color: #0a0a0f;
-                  border: none;
-                "
-              >
-                View
-              </button>
-            </div>
-            <!-- Subtitle -->
-            <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
-              Microsoft
-            </p>
-          </div>
-
-          <!-- 6 -->
-          <!-- 6 -->
-          <div class="cert-card cursor-pointer">
-            <p class="mono text-xs mb-2" style="color: var(--accent2)">
-              May 2025
-            </p>
-
-            <!-- Title + View Button -->
-            <div class="flex items-center justify-between mb-1">
-              <h4 class="font-semibold">Complete Intro to Web Dev</h4>
-
-              <button
-                onclick="openCert('images/webdev.jpg')"
-                class="text-xs px-4 py-1.5 rounded-full transition-all hover:scale-105"
-                style="
-                  background-color: var(--accent2);
-                  color: #0a0a0f;
-                  border: none;
-                "
-              >
-                View
-              </button>
-            </div>
-
-            <!-- Subtitle -->
-            <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
-              Frontend Masters
-            </p>
-          </div>
-
-          <!-- 7 -->
-          <div class="cert-card cursor-pointer">
-            <p class="mono text-xs mb-2" style="color: var(--accent)">
               Jul 2025
             </p>
 
-            <!-- Title + View Button -->
             <div class="flex items-center justify-between mb-1">
               <h4 class="font-semibold">Cyber Security Fundamentals</h4>
 
@@ -1089,6 +1462,33 @@
                 onclick="openCert('images/cyber.jpg')"
                 class="text-xs px-4 py-1.5 rounded-full transition-all hover:scale-105"
                 style="
+                  background-color: var(--accent2);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+
+            <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
+              IBM SkillsBuild
+            </p>
+          </div>
+
+          <!-- 5 - Complete Intro Web Development -->
+          <div class="cert-card cursor-pointer">
+            <p class="mono text-xs mb-2" style="color: var(--accent)">
+              May 2025
+            </p>
+
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">Complete Intro Web Development</h4>
+
+              <button
+                onclick="openCert('images/webdev.jpg')"
+                class="text-xs px-4 py-1.5 rounded-full transition-all hover:scale-105"
+                style="
                   background-color: var(--accent);
                   color: #0a0a0f;
                   border: none;
@@ -1098,18 +1498,156 @@
               </button>
             </div>
 
-            <!-- Subtitle -->
             <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
-              IBM Skillsbuild
+              Frontend Masters
+            </p>
+          </div>
+
+          <!-- 6 - Microsoft Azure -->
+          <div class="cert-card cursor-pointer">
+            <p class="mono text-xs mb-2" style="color: var(--accent2)">
+              Apr 2025
+            </p>
+
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">Microsoft Azure Fundamentals</h4>
+
+              <button
+                onclick="openCert('images/azure.jpg')"
+                class="text-xs px-4 py-1.5 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent2);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+
+            <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
+              Microsoft
+            </p>
+          </div>
+
+          <!-- 7 - AI Fundamentals -->
+          <div class="cert-card cursor-pointer">
+            <p class="mono text-xs mb-2" style="color: var(--accent)">
+              Jan 2025
+            </p>
+
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">AI Fundamentals</h4>
+
+              <button
+                onclick="openCert('images/ai.jpg')"
+                class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+
+            <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
+              IBM SkillsBuild
+            </p>
+          </div>
+
+          <!-- 8 - SAWIT.AI -->
+          <div class="cert-card cursor-pointer">
+            <p class="mono text-xs mb-2" style="color: var(--accent2)">
+              Oct 2024
+            </p>
+
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">SAWIT.AI Learnathon</h4>
+
+              <button
+                onclick="openCert('images/sawit.jpg')"
+                class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent2);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+
+            <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">Guvi</p>
+          </div>
+
+          <!-- 9 - Python Developer -->
+          <div class="cert-card cursor-pointer">
+            <p class="mono text-xs mb-2" style="color: var(--accent)">
+              Sep 2024
+            </p>
+
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">Python Developer Path</h4>
+
+              <button
+                onclick="openCert('images/python.jpg')"
+                class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+
+            <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
+              MongoDB
+            </p>
+          </div>
+
+          <!-- 10 - Introduction to Java -->
+          <div class="cert-card cursor-pointer">
+            <p class="mono text-xs mb-2" style="color: var(--accent2)">
+              Aug 2024
+            </p>
+
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-semibold">Introduction to Java</h4>
+
+              <button
+                onclick="openCert('images/java.jpg')"
+                class="text-xs px-3 py-1 rounded-full transition-all hover:scale-105"
+                style="
+                  background-color: var(--accent2);
+                  color: #0a0a0f;
+                  border: none;
+                "
+              >
+                View
+              </button>
+            </div>
+
+            <p class="text-xs" style="color: rgba(228, 228, 236, 0.5)">
+              Infosys Springboard
             </p>
           </div>
         </div>
       </section>
-      <!-- Contact -->
+
+      <!-- ================= CONTACT ================= -->
+
       <section id="contact" class="section-fade max-w-6xl mx-auto px-6 py-20">
         <p class="mono text-xs mb-2" style="color: var(--accent)">06 //</p>
+
         <h2 class="text-3xl sm:text-4xl font-bold mb-12">Get In Touch</h2>
+
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Phone -->
+
           <a
             href="tel:+919360718953"
             class="flex items-center gap-3 p-5 rounded-xl transition-all hover:scale-105"
@@ -1127,15 +1665,20 @@
                 style="width: 18px; height: 18px; color: var(--accent)"
               ></i>
             </div>
+
             <div>
               <p class="text-xs" style="color: rgba(228, 228, 236, 0.4)">
                 Phone
               </p>
+
               <p class="text-sm font-medium">+91 9360718953</p>
-            </div></a
-          >
+            </div>
+          </a>
+
+          <!-- Email -->
+
           <a
-            href="mailto:moganapriya0705@gmail.com"
+            href="mailto:moganapriya756@gmail.com"
             class="flex items-center gap-3 p-5 rounded-xl transition-all hover:scale-105"
             style="
               background: var(--surface);
@@ -1151,15 +1694,20 @@
                 style="width: 18px; height: 18px; color: var(--accent2)"
               ></i>
             </div>
+
             <div>
               <p class="text-xs" style="color: rgba(228, 228, 236, 0.4)">
                 Email
               </p>
+
               <p class="text-sm font-medium break-all">
-                moganapriya0705@gmail.com
+                moganapriya756@gmail.com
               </p>
-            </div></a
-          >
+            </div>
+          </a>
+
+          <!-- Location -->
+
           <div
             class="flex items-center gap-3 p-5 rounded-xl"
             style="
@@ -1176,13 +1724,18 @@
                 style="width: 18px; height: 18px; color: var(--accent)"
               ></i>
             </div>
+
             <div>
               <p class="text-xs" style="color: rgba(228, 228, 236, 0.4)">
                 Location
               </p>
+
               <p class="text-sm font-medium">Chennai, Tamil Nadu</p>
             </div>
           </div>
+
+          <!-- LinkedIn -->
+
           <a
             href="https://www.linkedin.com/in/moganapriya-mohan-44ab7929b"
             target="_blank"
@@ -1202,120 +1755,162 @@
                 style="width: 18px; height: 18px; color: var(--accent2)"
               ></i>
             </div>
+
             <div>
               <p class="text-xs" style="color: rgba(228, 228, 236, 0.4)">
                 LinkedIn
               </p>
+
               <p class="text-sm font-medium">Connect →</p>
-            </div></a
+            </div>
+          </a>
+        </div>
+
+        <!-- GitHub -->
+
+        <div class="flex justify-center mt-8">
+          <a
+            href="https://github.com/mona-76"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all hover:scale-105"
+            style="
+              background: rgba(255, 255, 255, 0.05);
+              border: 1px solid rgba(255, 255, 255, 0.08);
+            "
           >
+            <i data-lucide="github" style="width: 18px; height: 18px"></i>
+
+            github.com/mona-76
+          </a>
         </div>
       </section>
-      <!-- Footer -->
+
+      <!-- ================= FOOTER ================= -->
+
       <footer
         class="border-t px-6 py-8 text-center"
         style="border-color: rgba(255, 255, 255, 0.05)"
       >
         <p class="text-xs" style="color: rgba(228, 228, 236, 0.3)">
-          I do hereby declare that the above details are true to the best of my
-          knowledge.
+          Computer Science Engineering Student · Software Development · Testing
+          · AI/ML
         </p>
+
         <p class="text-xs mt-2" style="color: rgba(228, 228, 236, 0.2)">
-          © 2025 Moganapriya M. Built with passion.
+          © 2026 Moganapriya M. Built with passion.
         </p>
       </footer>
     </div>
 
+    <!-- ================= JAVASCRIPT ================= -->
+
     <script>
-      const defaultConfig = {
-        hero_title: "Moganapriya M",
-        hero_subtitle: "Computer Science Student & Aspiring Developer",
-        objective_text:
-          "A highly motivated, detail-oriented and curious Computer Science student with a passion for solving real-world problems through technology. Seeking internship opportunities to apply my skills in software testing, web development, database design within a collaborative and learning-driven environment.",
-        background_color: "#0a0a0f",
-        surface_color: "#13131f",
-        text_color: "#e4e4ec",
-        accent_color: "#6ee7b7",
-        secondary_accent_color: "#818cf8",
-        font_family: "Sora",
-        font_size: 16,
-      };
-
-      function applyConfig(config) {
-        const t = (k) => config[k] || defaultConfig[k];
-        document.getElementById("hero-title").textContent = t("hero_title");
-        document.getElementById("hero-subtitle").textContent =
-          t("hero_subtitle");
-        document.getElementById("objective-text").textContent =
-          t("objective_text");
-
-        const root = document.documentElement;
-        root.style.setProperty("--bg", t("background_color"));
-        root.style.setProperty("--surface", t("surface_color"));
-        root.style.setProperty("--text", t("text_color"));
-        root.style.setProperty("--accent", t("accent_color"));
-        root.style.setProperty("--accent2", t("secondary_accent_color"));
-
-        document.body.style.color = t("text_color");
-        document.querySelector(".app-wrapper").style.background =
-          t("background_color");
-
-        const font = t("font_family");
-        const baseStack = "sans-serif";
-        const fullFont = `${font}, ${baseStack}`;
-        document.body.style.fontFamily = fullFont;
-
-        const baseSize = t("font_size");
-        document.getElementById("hero-title").style.fontSize = "";
-        document.getElementById("objective-text").style.fontSize =
-          `${baseSize}px`;
-        document
-          .querySelectorAll(".section-fade h2")
-          .forEach((h) => (h.style.fontSize = `${baseSize * 2}px`));
-      }
-      function openCert(imageSrc) {
-        const modal = document.getElementById("cert-modal");
-        const img = document.getElementById("cert-image");
-
-        img.src = imageSrc;
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-      }
-
       // Mobile menu
+
       document.getElementById("menu-btn").addEventListener("click", () => {
         document.getElementById("mobile-nav").classList.toggle("hidden");
       });
-      document
-        .querySelectorAll("#mobile-nav a")
-        .forEach((a) =>
-          a.addEventListener("click", () =>
-            document.getElementById("mobile-nav").classList.add("hidden"),
-          ),
-        );
 
-      // Scroll animations
+      document.querySelectorAll("#mobile-nav a").forEach((a) => {
+        a.addEventListener("click", () => {
+          document.getElementById("mobile-nav").classList.add("hidden");
+        });
+      });
+
+      // Scroll animation
+
       const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) e.target.classList.add("visible");
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
           });
         },
-        { threshold: 0.1 },
+
+        {
+          threshold: 0.1,
+        },
       );
-      document
-        .querySelectorAll(".section-fade")
-        .forEach((el) => observer.observe(el));
+
+      document.querySelectorAll(".section-fade").forEach((element) => {
+        observer.observe(element);
+      });
+
+      // Lucide icons
+
       document.addEventListener("DOMContentLoaded", () => {
         lucide.createIcons();
+      });
 
-        document.getElementById("close-modal").addEventListener("click", () => {
-          document.getElementById("cert-modal").classList.add("hidden");
+      // Active navigation
+
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll("nav a[href^='#']");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 150;
+
+          if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+          }
         });
 
-        document.getElementById("cert-modal").addEventListener("click", (e) => {
-          if (e.target.id === "cert-modal") {
-            e.currentTarget.classList.add("hidden");
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+    <script>
+      function openCert(imageSrc) {
+        const modal = document.getElementById("cert-modal");
+        const modalImage = document.getElementById("cert-image");
+
+        if (!modal || !modalImage) {
+          console.error("Certificate modal elements not found.");
+          return;
+        }
+
+        modalImage.src = imageSrc;
+        modal.style.display = "flex";
+      }
+
+      function closeCert() {
+        const modal = document.getElementById("cert-modal");
+
+        if (modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("cert-modal");
+        const closeButton = document.getElementById("close-modal");
+
+        if (closeButton) {
+          closeButton.addEventListener("click", closeCert);
+        }
+
+        if (modal) {
+          modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+              closeCert();
+            }
+          });
+        }
+
+        // Close certificate with Escape key
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") {
+            closeCert();
           }
         });
       });
@@ -1323,20 +1918,53 @@
     <!-- Certificate Modal -->
     <div
       id="cert-modal"
-      class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(0, 0, 0, 0.9);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      "
     >
-      <div class="relative max-w-3xl w-full px-4">
-        <!-- Close Button -->
-        <button
-          id="close-modal"
-          class="absolute top-2 right-2 text-white text-2xl"
-        >
-          &times;
-        </button>
+      <!-- Close Button -->
+      <button
+        id="close-modal"
+        type="button"
+        aria-label="Close certificate"
+        style="
+          position: absolute;
+          top: 20px;
+          right: 30px;
+          z-index: 10000;
+          color: white;
+          background: transparent;
+          border: none;
+          font-size: 40px;
+          cursor: pointer;
+        "
+      >
+        &times;
+      </button>
 
-        <!-- Image -->
-        <img id="cert-image" src="" class="w-full rounded-lg shadow-lg" />
-      </div>
+      <!-- Certificate Image -->
+      <img
+        id="cert-image"
+        src=""
+        alt="Certificate"
+        style="
+          display: block;
+          max-width: 90%;
+          max-height: 90vh;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          border-radius: 10px;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        "
+      />
     </div>
   </body>
 </html>
